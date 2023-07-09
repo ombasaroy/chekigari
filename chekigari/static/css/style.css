@@ -1,0 +1,370 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');*/
+
+body, html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+    .nav-link:hover{
+        color: black;
+    }
+
+    .landing_page{
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .container > div > h1{
+        font-size: 70px;
+        font-weight: 800;
+
+    }
+    .container > div > h2{
+        font-size: 18px;
+        font-weight: 600;
+
+    }
+    .landing_page > div > a > button{
+        color: black;
+        background-color: transparent;
+        border: solid 2px black;
+        border-radius: 50px;
+        padding: 5px 60px;
+        margin-top: 5px;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .landing_page > div > a > button:hover{
+        color: white;
+        background-color: black;
+    }
+
+    .navbar{
+        background-color: white;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .navbar-brand{
+        font-weight: 600;
+    }
+
+    .homepage-search{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .login-main{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .form-styling{
+        border-radius: 10px;
+        background-color: black;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .form-styling > h3 {
+        text-align: center;
+        color: #00000091;
+        margin-bottom: 20px;
+        color: white;
+        padding-top: 20px;
+    }
+
+    .inner-login{
+        background-color: white;
+        padding: 30px;
+    }
+
+    .btn-submit{
+        border-radius: 20px;
+        padding: 5px;
+        background: rgb(0, 0, 0);
+        color: white;
+        font-weight: 600;
+        width: 50%;
+        margin-bottom: 30px;
+        margin-left: 25%;
+    }
+
+    .btn-submit:hover{
+        background-color: #007b2a;
+        color: white;
+    }
+
+    .not-registered > p{
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.75);
+    }
+
+    .not-registered > p >a{
+        color: rgba(0, 0, 0, 0.75);
+        font-weight: 600;
+        text-decoration: none;
+        text-underline-mode: none;
+    }
+
+    .never-share{
+        font-size: 14px;
+    }
+
+    .edit-form-control{
+        /*border-radius: 20px;*/
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    @media screen and (max-width: 480px) {
+    .landing_page > div > img {
+    display: none;
+  }
+
+        .landing_page{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+    }
+
+    .container > div > h1{
+        font-size: 50px;
+        font-weight: 800;
+        text-align: center;
+
+    }
+    .container > div > h2{
+        font-size: 32px;
+        text-align: center;
+
+    }
+
+
+
+    .container > div > a > button{
+        width: 100%;
+
+    }
+
+
+}
+
+/*    VIEW CSS*/
+
+    .btn-danger, .btn-warning{
+        background: black;
+        border: none;
+        border-radius: 50px;
+        color: white;
+        font-weight: 600;
+    }
+
+    .btn-danger:hover{
+        border: none;
+        background: red;
+    }
+
+    .btn-warning:hover{
+        border: none;
+        background: #ffc800;
+    }
+
+/*    REGISTER CSS*/
+    .error-message {
+            color: red;
+        }
+
+    .send_message{
+        display: flex;
+        flex-direction: row!important;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .searchMessages{
+        display: inline;
+
+    }
+
+    .fa-magnifying-glass{
+        color: black;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    /*.btn-primary{*/
+    /*    background: rgba(0, 0, 0, 0.71);*/
+    /*    color: white;*/
+    /*    border: none;*/
+    /*}*/
+
+    .btn-primary:hover{
+        background: black;
+        color: white;
+    }
+
+    .card{
+  width: 15rem;
+  background: rgba(0, 0, 0, 0.04);
+  border: none;
+  box-shadow: -1px 3px 17px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card-title, .card, .card-text{
+  margin: 5px;
+  /* padding: 0; */
+}
+
+.btn-primary{
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-weight: 600;
+
+}
+
+.btn-primary:hover{
+  color: white;
+  background-color: black;
+    border: none;
+}
+
+.card-text{
+  font-size: 12px;
+}
+
+.vehicles{
+  display: flex;
+  flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+.page-item{
+    border: 1px solid black;
+    color: black;
+}
+.page-link{
+    color: black;
+    /*background: rgba(0, 0, 0, 0.47);*/
+}
+
+.page-link:hover{
+    color: black;
+    /*background: rgba(0, 0, 0, 0.47);*/
+}
+.active>.page-link{
+    background: black;
+    color: white;
+    border-color: black;
+}
+
+.car-models{
+    margin-top: 30px;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgb(240, 240, 240);
+}
+
+.above-footer{
+    height: 50%;
+    padding: 30px;
+}
+
+.company-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.company-section > a{
+    /*text-underline: none;*/
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.78);
+    padding-top: 10px;
+}
+
+.company-section > a:hover{
+    color: black;
+}
+
+/*.company-section-socials{*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+.socials{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 30px;
+}
+
+.socials > a{
+    color: #000000C6;
+}
+
+.socials > a:hover{
+    color: black;
+}
+
+.subscribe-btn{
+    margin-top: 5px;
+    text-align: center;
+}
+
+.copyright{
+    color: black;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+
+.sell-now{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sell-now > a > button{
+    color: white;
+        background-color: black;
+        border: none;
+        border-radius: 50px;
+        padding: 5px 60px;
+        margin-top: 5px;
+        font-weight: 600;
+        font-size: 18px;
+
+}
+
+
+
+
+
+
