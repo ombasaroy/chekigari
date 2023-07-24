@@ -6,7 +6,7 @@
         <div class="container-fluid" style="margin-bottom: 20px">
         <div class="container">
 
-            <form action="/edituser" method="POST" enctype="" style="margin-left: 20%; margin-right: 20%; background-color: black; border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <form action="/edituser/{{ d.id }}" method="POST" enctype="" style="margin-left: 20%; margin-right: 20%; background-color: black; border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                 {% csrf_token %}
 
                 <h2 style="text-align: center; color: white">EDIT USER</h2>
@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="row form-group mt-4">
-                    <input type="submit" class="btn btn-submit" name="signup" value="UPDATE">
+                    <input type="submit" class="btn btn-submit" name="update" value="UPDATE">
                 </div>
 
             </div>

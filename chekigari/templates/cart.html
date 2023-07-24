@@ -1,0 +1,161 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %} Cart {% endblock %}
+
+{% block main %} {% endblock %}
+
+{% block below-main %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <b>Delivery information</b>
+                <div class="delivery-info mt-4">
+                    <form action="">
+                        {% csrf_token %}
+                        <div class="row input-group">
+                            <div class="col">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Dawkins" required class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="mobile-no">Mobile no</label>
+                                <input type="number" id="mobile-no" name="mobile-no" placeholder="072476X56X" required class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row input-group mt-4">
+                            <div class="col">
+                                <label for="county">County</label>
+                                <select name="county" id="county" class="form-control" required>
+                                    <option value="">Choose county</option>
+                                    <option value="">Kisii</option>
+                                    <option value="">Nairobi</option>
+                                    <option value="">Kiambu</option>
+                                    <option value="">Machakos</option>
+                                </select>
+                            </div>
+
+                            <div class="col">
+                                <label for="town">Town</label>
+                                <input type="text" id="town" name="town" class="form-control" required>
+                            </div>
+
+                        </div>
+
+                        <div class="row input-group mt-4">
+                                <div class="col">
+                                    <label for="building">Building</label>
+                                    <input type="text" id="building" name="building" class="form-control">
+                                </div>
+                                <div class="col">
+                                    <label for="house-no">House no.</label>
+                                    <input type="text" id="house-no" name="house-no" class="form-control">
+                                </div>
+                            </div>
+
+                    </form>
+                </div>
+
+                <div class="mt-4">
+                    <b class="mt-4">Schedule delivery</b>
+                    <div class="schedule-delivery mt-4">
+                    <form action="">
+                        {% csrf_token %}
+                        <div class="row input-group">
+                            <div class="col">
+                                <label for="dod">Date of delivery</label>
+                                <input type="date" id="dod" name="dod" min="" max="" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row input-group mt-4">
+                            <div class="col">
+                                <label for="note">Note</label>
+                                <input type="text" id="note" name="note" placeholder="Type your note here" class="form-control">
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="col">
+                <b>Order summary</b>
+                <div class="mt-4 order-summary">
+                    <div>
+                        <table class="table table-borderless">
+                      <thead>
+                          <th scope="col">Image</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Quantity</th>
+                          <th scope="col">Action</th>
+
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><img src="{% static 'images/sellcar.jpg' %}" alt="" width="200"></td>
+                          <td>Mazda CX5, white, 2200cc, Diesel</td>
+                          <td class="center-text">
+                              <b>1</b>
+                          </td>
+                            <td class="center-text">
+                                <a href=""><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+
+                    <hr>
+                    <div class="sub-total">
+                        <p>Subtotal</p>
+                        <p>Ksh <b>50,000</b></p>
+                    </div>
+                    <div class="sub-total">
+                        <p>Shipping fee</p>
+                        <p>Ksh <b>200</b></p>
+                    </div>
+                    <hr>
+                    <div class="sub-total">
+                        <p><b>Total</b></p>
+                        <p> <b>Ksh 50,200</b></p>
+                    </div>
+                    <hr>
+                    <button class="btn btn-submit">BUY</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block become-seller %}
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const datePicker = document.getElementById("dod");
+            const today = new Date();
+            const thirtyDaysFromNow = new Date(today);
+            thirtyDaysFromNow.setDate(today.getDate() + 30);
+
+            const todayStr = today.toISOString().split("T")[0];
+            const thirtyDaysFromNowStr = thirtyDaysFromNow.toISOString().split("T")[0];
+
+            datePicker.setAttribute("min", todayStr);
+            datePicker.setAttribute("max", thirtyDaysFromNowStr);
+        });
+    </script>
+
+
+{% endblock %}

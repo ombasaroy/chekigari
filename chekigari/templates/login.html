@@ -11,14 +11,22 @@
     <div class="container-fluid" style="">
         <div class="container">
 
-            <form action="" method="" enctype="" style="margin: 20px 25%; background-color: black; border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <form action="/userlogin" method="POST" enctype="" style="margin: 20px 25%; background-color: black; border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                 <h2 style="text-align: center; color: white">LOGIN</h2>
+
                 {% csrf_token %}
             <div style="background-color: white; padding: 50px">
+                {% for message in messages %}
+                <div class="alert alert-danger alert-dismissible fade show mt-2 mb-2" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            {% endfor %}
                 <div class="row form-group mt-4">
                 <div class="col-6 col-sm-12 col-md-12">
-                    <label for="login-email">Email</label>
-                    <input type="email" id="login-email" name="login-email" class="form-control edit-form-control">
+                    <label for="login-email">Username</label>
+                    <input type="text" id="login-username" name="login-username" class="form-control edit-form-control">
                 </div>
             </div>
 
@@ -26,7 +34,11 @@
                     <div class="col-6 col-sm-12 col-md-12">
                         <label for="login-password">Password</label>
                         <input type="password"  class="form-control edit-form-control" id="login-password" name="login-password">
-
+                        <form action="">
+                            {% csrf_token %}
+                            <input type="checkbox" id="remember-me" name="remember-me" class="mt-2"> Remember me
+                        </form>
+                        <p class="mt-4 forgot-password">Forgot password? <a href="#">Reset password here</a></p>
                     </div>
 
                 </div>
@@ -37,7 +49,7 @@
 
                 <div class="row">
                 <div class="mb-3 not-registered">
-                <p>Not registered? <a href="{% url 'register' %}">Register now</a></p>
+                <p>Not registered? <a href="{% url 'chekigari:signup' %}">Create account</a></p>
 
             </div>
             </div>

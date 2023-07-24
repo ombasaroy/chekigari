@@ -9,6 +9,14 @@
     <div class="container" style="height: 100vh">
     <h2 style="text-align: center; font-weight: 600; margin-top: 20px; color: white; padding: 10px 0px; background-color: black">USERS</h2>
 
+    {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show mt-2 mb-2" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    {% endfor %}
+
         <div class="row">
             <div class="col-md-4">
               <form>

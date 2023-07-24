@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block main %} {% endblock %}
+
+
+{% block below-main %}
+
+    <div class="container">
+    <div class="row">
+        <div class="col-6 col-md-6">
+            <label for="">Image</label>
+    <input type="file" accept="image/*" name="image" id="image" class="form-control">
+    <br>
+    <label for="">PDF</label>
+    <input type="file" accept="appli" class="form-control">
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Button to trigger the modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centeredModal">
+  Open Centered Modal
+</button>
+
+<!-- The modal -->
+<div class="modal fade" id="centeredModal" tabindex="-1" role="dialog" aria-labelledby="centeredModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header" style="background: rgba(240,0,0,0.98);">
+            <h3 class="modal-title" id="centeredModalLabel"><i class="fa-solid fa-triangle-exclamation"></i></h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none; background: transparent;">
+{#              <span aria-hidden="true">&times;</span>#}
+                <i class="fa-solid fa-xmark" style="color: white"></i>
+            </button>
+        </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete the record?</p>
+      </div>
+      <div class="modal-footer">
+        <a href="" type="button" class="btn btn-danger" data-dismiss="modal">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block become-seller %} {% endblock %}

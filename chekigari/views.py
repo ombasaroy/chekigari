@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Users, Messages
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 
 # from static.images import views
@@ -10,7 +12,7 @@ from django.contrib import messages
 # Create your views here.
 
 
-def login(request):
+def loginform(request):
     return render(request, 'login.html')
 
 
@@ -46,6 +48,8 @@ def insert(request):
         reg = Users(fname=fname, onames=onames, phone=phone, dob=dob, email=email, country=country, gender=gender)
         reg.save()
 
+        messages.success(request, 'Registration successful')
+
     return redirect('/register')
 
 
@@ -67,12 +71,14 @@ def delete(request, id):
     d = Users.objects.get(id=id)
     d.delete()
 
+    messages.success(request, 'User deleted successfully')
+
     return redirect("/viewdata")
 
 
 def viewMessages(request):
-    messages = Messages.objects.all()
-    context = {"messages": messages}
+    viewmessages = Messages.objects.all()
+    context = {"viewmessages": viewmessages}
 
     return render(request, 'viewmessages.html', context)
 
@@ -81,7 +87,9 @@ def deleteMessage(request, id):
     deleteMessage = Messages.objects.get(id=id)
     deleteMessage.delete()
 
-    return redirect("/messages")
+    messages.success(request, 'Message deleted successfully')
+
+    return redirect("/viewmessages")
 
 
 def edituser(request, id):
@@ -105,10 +113,69 @@ def edituser(request, id):
 
         update.save()
 
+        messages.success(request, "User updated successfully")
+        return redirect("/viewdata")
+
+
+
     d = Users.objects.get(id=id)
-    context = {"d":d}
+    context = {"d": d}
     return render(request, 'edituser.html', context)
 
 
 def shop(request):
     return render(request, 'shop.html')
+
+
+def signup(request):
+    return render(request, 'signup.html')
+
+
+def signupdata(request):
+    if request.method == 'POST':
+        username = request.POST.get('s-name')
+        email = request.POST.get('s-email')
+        password = request.POST.get('s-password')
+
+        signup = User.objects.create_user(username, email, password)
+        signup.save()
+    return redirect('/login')
+
+
+def userlogin(request):
+    if request.method =="POST":
+        l_username = request.POST.get('login-username')
+        l_password = request.POST.get('login-password')
+        userlog = authenticate(username=l_username, password=l_password)
+        if userlog is not None:
+            login(request, userlog)
+            return redirect('/')
+        else:
+            messages.error(request, "Username or password is incorrect")
+            return redirect('/login')
+
+    return render(request, 'login.html')
+
+
+def dashboard(request):
+    return render(request, 'dashlayout.html')
+
+
+def viewvehicle(request):
+    return render(request, 'viewvehicle.html')
+
+def cart(request):
+    return render(request, 'cart.html')
+
+
+def uploads(request):
+    return render(request, 'uploads.html')
+
+
+
+
+
+
+
+
+

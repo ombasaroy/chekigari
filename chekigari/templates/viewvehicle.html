@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %} View Vehicle {% endblock %}
+
+{% block main %} {% endblock %}
+
+{% block below-main %}
+
+    <div class="container">
+
+    <div class="row">
+        <div class="col-6">
+            <img src="{% static 'images/sellcar.jpg' %}" alt="" style="width: 100%">
+            <div class="viewvehicle-smallimages">
+              <img src="{% static 'images/sellcar.jpg' %}" class="mt-2" alt="" style="width: 15%">
+              <img src="{% static 'images/sellcar.jpg' %}" class="mt-2" alt="" style="width: 15%">
+              <img src="{% static 'images/sellcar.jpg' %}" class="mt-2" alt="" style="width: 15%">
+              <img src="{% static 'images/sellcar.jpg' %}" class="mt-2" alt="" style="width: 15%">
+              <img src="{% static 'images/sellcar.jpg' %}" class="mt-2" alt="" style="width: 15%">
+
+            </div>
+        </div>
+        <div class="col-5 viewvehicle-desc" style="margin-left: 50px">
+            <h4>Mazda: CX5</h4>
+            <hr>
+            <p>Make: <b>Mazda</b></p>
+            <p>Model: <b>CX5</b></p>
+            <p>Mileage: <b>120,000 kms</b></p>
+            <p>Engine CC: <b>2200C</b></p>
+            <p>Fuel type: <b>Diesel</b></p>
+            <p>Transimission: <b>Automatic</b></p>
+            <p>Color: <b>White</b></p>
+            <p>Year of Manufacture: <b>2016</b></p>
+            <p>Interior: <b>Black</b></p>
+            <hr>
+            <h4>Available units: 14</h4>
+            <div class="container mt-5">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary" type="button" id="decreaseBtn">-</button>
+                </div>
+                <input type="text" class="form-control text-center" value="1" id="quantityInput">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="increaseBtn">+</button>
+                </div>
+              </div>
+              <button class="btn btn-submit" id="addToCartBtn">Add to Cart</button>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block become-seller %}
+
+{% endblock %}
+
+{% block scripts %}
+
+    <script>
+  // Get quantity input and buttons
+  const quantityInput = document.getElementById('quantityInput');
+  const increaseBtn = document.getElementById('increaseBtn');
+  const decreaseBtn = document.getElementById('decreaseBtn');
+
+  // Add event listeners to buttons
+  increaseBtn.addEventListener('click', () => {
+    let currentQuantity = parseInt(quantityInput.value);
+    quantityInput.value = currentQuantity + 1;
+  });
+
+  decreaseBtn.addEventListener('click', () => {
+    let currentQuantity = parseInt(quantityInput.value);
+    if (currentQuantity > 1) {
+      quantityInput.value = currentQuantity - 1;
+    }
+  });
+
+  // Add event listener to Add to Cart button (Replace this with your desired functionality)
+  const addToCartBtn = document.getElementById('addToCartBtn');
+  addToCartBtn.addEventListener('click', () => {
+    const quantity = parseInt(quantityInput.value);
+    // Here you can add your logic to add the product with the selected quantity to the cart
+    // For example, you can use an AJAX request to update the cart on the server-side.
+    console.log(`Product added to cart with quantity: ${quantity}`);
+  });
+</script>
+
+{% endblock %}

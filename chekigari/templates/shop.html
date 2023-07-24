@@ -12,9 +12,10 @@
             <div class="row">
             <div class="col">
               <form class="homepage-search">
+                  {% csrf_token %}
                 <div class="input-group">
 {#                    <label for="make">Choose vehicle make</label>#}
-                    <select class="form-control edit-form-control" name="make" id="make">
+                    <select class="form-control edit-form-control" name="make" id="make" required>
                         <option value="">Choose make</option>
                         <option value="">Mazda</option>
                         <option value="">Toyota</option>
@@ -24,7 +25,7 @@
                     </select>
                     <div class="input-group-append">
 {#                        <label for="model">Model</label>#}
-                        <select class="form-control edit-form-control" name="model" id="model">
+                        <select class="form-control edit-form-control" name="model" id="model" required>
                             <option value="">Choose model</option>
                             <option value="">Cx1</option>
                             <option value="">Cx2</option>
@@ -35,10 +36,10 @@
                         </select>
                   </div>
                     <div class="input-group-append">
-                        <input type="number" name="minyear" id="minyear" placeholder="2016" class="form-control">
+                        <input type="number" name="minyear" id="minyear" placeholder="2016" class="form-control" required>
                   </div>
                     <div class="input-group-append">
-                        <input type="number" name="maxyear" id="maxyear" placeholder="2023" class="form-control">
+                        <input type="number" name="maxyear" id="maxyear" placeholder="2023" class="form-control" required>
 
                   </div>
                   <div class="input-group-append">
@@ -53,227 +54,182 @@
 {#        Vehicle display starts here#}
         <div class="vehicles container mt-5">
         <div class="card">
-          <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-          <div class="card-body">
-            <h5 class="card-title">Mazda CX5</h5>
-            <hr>
-            <p class="card-text">AWD, Leather Seats, Black Interior</p>
-            <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-              <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-            <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-          </div>
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
+    </div>
+        <div class="card">
+      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
+      <div class="card-body">
+        <h5 class="card-title">Mazda CX5</h5>
+        <hr>
+        <p class="card-text">AWD, Leather Seats, Black Interior</p>
+        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
+          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
+        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+      </div>
     </div>
 
-        <div class="card">
-          <img src="{% static 'images/car2.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-          <div class="card-body">
-            <h5 class="card-title">Mazda CX5</h5>
-            <hr>
-            <p class="card-text">AWD, Leather Seats, Black Interior</p>
-            <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-              <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-            <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-          </div>
-    </div>
-        <div class="card">
-          <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-          <div class="card-body">
-            <h5 class="card-title">Mazda CX5</h5>
-            <hr>
-            <p class="card-text">AWD, Leather Seats, Black Interior</p>
-            <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-              <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-            <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-          </div>
-    </div>
-        <div class="card">
-          <img src="{% static 'images/car2.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-          <div class="card-body">
-            <h5 class="card-title">Mazda CX5</h5>
-            <hr>
-            <p class="card-text">AWD, Leather Seats, Black Interior</p>
-            <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-              <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-            <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-          </div>
-    </div>
-        <div class="card">
-          <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-          <div class="card-body">
-            <h5 class="card-title">Mazda CX5</h5>
-            <hr>
-            <p class="card-text">AWD, Leather Seats, Black Interior</p>
-            <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-              <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-            <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-          </div>
-    </div>
-        <div class="card">
-          <img src="{% static 'images/car2.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-          <div class="card-body">
-            <h5 class="card-title">Mazda CX5</h5>
-            <hr>
-            <p class="card-text">AWD, Leather Seats, Black Interior</p>
-            <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-              <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-            <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-          </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-          <img src="{% static 'images/car2.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-          <div class="card-body">
-            <h5 class="card-title">Mazda CX5</h5>
-            <hr>
-            <p class="card-text">AWD, Leather Seats, Black Interior</p>
-            <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-              <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-            <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-          </div>
-    </div>
-
-    <div class="card">
-      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/car2.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/car2.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/car2.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/car2.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/car2.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
-        <div class="card">
-      <img src="{% static 'images/car2.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
-      <div class="card-body">
-        <h5 class="card-title">Mazda CX5</h5>
-        <hr>
-        <p class="card-text">AWD, Leather Seats, Black Interior</p>
-        <p class="card-text">Mileage: <b>50,000 Kms </b></p>
-          <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="#"style="width: 100%" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>
     <div class="container mt-5">
 
     <ul class="pagination">

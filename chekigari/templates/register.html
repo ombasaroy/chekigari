@@ -16,26 +16,35 @@
 
                 <h2 style="text-align: center; color: white">REGISTRATION FORM</h2>
             <div style="background-color: white; padding: 50px">
+
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show mt-2 mb-2" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                {% endfor %}
+
                 <div class="row form-group">
                 <div class="col-6 col-sm-12 col-md-6">
                     <label for="first-name">First name</label>
-                    <input type="text" id="first-name" value="{{ d.fname }}" name="first-name" class="form-control">
+                    <input type="text" id="first-name"  name="first-name" class="form-control">
                 </div>
                 <div class="col-6 col-sm-12 col-md-6">
                     <label for="">Other names</label>
-                    <input value=" {{ d.onames }}" type="text" id="other-names"  name="other-names" class="form-control">
+                    <input type="text" id="other-names"  name="other-names" class="form-control">
                 </div>
             </div>
 
                 <div class="row form-group mt-4">
                     <div class="col-6 col-sm-12 col-md-6">
                         <label for="tel-no">Phone no.</label>
-                        <input value="{{ d.phone }}" type="number" class="form-control" id="tel-no" name="tel-no">
+                        <input type="number" class="form-control" id="tel-no" name="tel-no">
 
                     </div>
                     <div class="col-6 col-sm-12 col-md-6">
                         <label for="dob">Date of Birth</label>
-                        <input value="{{ d.dob }}" type="date" class="form-control" id="dob" name="dob">
+                        <input type="date" class="form-control" id="dob" name="dob">
                         <span id="error-message" class="error-message"></span>
                     </div>
                 </div>
@@ -43,13 +52,13 @@
                 <div class="row form-group mt-4">
                     <div class="col-6 col-sm-12 col-md-6">
                         <label for="email">Email</label>
-                        <input value="{{ d.email }}" type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email">
 
                     </div>
                     <div class="col-6 col-sm-12 col-md-6">
                         <label for="country">Country</label>
                         <select name="country" id="country" class="form-control">
-                            <option value="{{ d.country }}">{{ d.country }}</option>
+                            <option value="">Choose country</option>
                             <option value="Kenya">Kenya</option>
                             <option value="Tanzania">Tanzania</option>
                             <option value="Uganda">Uganda</option>
@@ -79,7 +88,6 @@
                     <div class="col-6 col-sm-12 col-md-6">
                         <label for="gender">Gender</label>
                         <select name="gender" id="gender" class="form-control">
-                            <option value="{{ d.gender }}">{{ d.gender }}</option>
                             <option value="">Choose gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -94,7 +102,7 @@
 
                 <div class="row">
                 <div class="mb-3 not-registered">
-                <p>Already registered? <a href="{% url 'login' %}">Log in</a></p>
+                <p>Already registered? <a href="{% url 'chekigari:login' %}">Log in</a></p>
 
             </div>
             </div>
