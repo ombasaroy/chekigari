@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Users, Messages
+from .models import Users, Messages, Uploadfiles, Shop
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
@@ -17,7 +17,9 @@ def loginform(request):
 
 
 def index(request):
-    return render(request, 'index.html')
+    vehicles = Shop.objects.all()
+    context = {"vehicles":vehicles, 'nav':'home'}
+    return render(request, 'index.html', context)
 
 
 def register(request):
@@ -124,7 +126,10 @@ def edituser(request, id):
 
 
 def shop(request):
-    return render(request, 'shop.html')
+
+    vehicles = Shop.objects.all()
+    context = {"vehicles": vehicles, 'nav':'shop'}
+    return render(request, 'shop.html', context)
 
 
 def signup(request):
@@ -169,7 +174,50 @@ def cart(request):
 
 
 def uploads(request):
+
+    datas = Uploadfiles.objects.all()
+    return render(request, 'uploads.html',{'data':datas})
+
+
+def uploadfiles(request):
+    if request.method == "POST":
+        image = request.FILES.get('image')
+        file = request.FILES.get('file')
+
+        query = Uploadfiles(image=image, file=file)
+        query.save()
     return render(request, 'uploads.html')
+
+
+def addvehicle(request):
+    return render(request, 'addvehicle.html', {'nav':'addvehicle'})
+
+
+def addvehicletodb(request):
+    if request.method == 'POST':
+        make = request.POST.get('make').title()
+        model = request.POST.get('make').title()
+        cc = request.POST.get('cc')
+        mileage = request.POST.get('mileage')
+        fuel_type = request.POST.get('fuel')
+        transmission = request.POST.get('transmission')
+        year = request.POST.get('yom')
+        color = request.POST.get('color')
+        available_units = request.POST.get('units')
+        photo = request.FILES.get('photo')
+        price = request.POST.get('price')
+        # other_photos = request.POST.get('otherphotos')
+
+        query = Shop(make=make, model=model, cc=cc, mileage=mileage, fuel_type=fuel_type,
+                     transmission=transmission,  year=year, color=color, available_units=available_units,
+                     photo=photo)
+        query.save()
+        messages.success(request, "Vehicle added successfully")
+
+        return redirect('/addvehicle')
+
+
+
 
 
 

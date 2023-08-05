@@ -26,3 +26,32 @@ class Messages(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Uploadfiles(models.Model):
+    image = models.ImageField(upload_to="images/", blank=True, null=True)
+    file = models.FileField(upload_to="uploaded_files/", blank=True, null=True)
+
+    def __str__(self):
+        return self.image
+
+
+class Shop(models.Model):
+    make = models.CharField(max_length=20, null=False, blank=False)
+    model = models.CharField(max_length=20, null=False, blank=False)
+    cc = models.IntegerField()
+    mileage = models.IntegerField()
+    fuel_type = models.CharField(max_length=10, null=False, blank=False)
+    transmission = models.CharField(max_length=20, null=False, blank=False)
+    year = models.IntegerField()
+    color = models.CharField(max_length=20, null=False, blank=False)
+    available_units = models.IntegerField()
+    photo = models.ImageField(upload_to="shopvehicles/", blank=True, null=True)
+    price = models.IntegerField()
+
+    # other_photos = models.ImageField(upload_to='shopvehicles/', blank=True, null=True)
+
+
+    def __str__(self):
+        return self.make
+

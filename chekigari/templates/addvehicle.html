@@ -1,0 +1,116 @@
+{% extends 'index.html' %}
+
+{% block title %} Add Vehicle {% endblock %}
+
+{% block main %} {% endblock %}
+
+{% block below-main %}
+
+    <div class="container">
+        <form action="{% url 'chekigari:addvehicletodb' %}" method="POST" enctype="multipart/form-data" style="margin-left: 20%; margin-right: 20%; background-color: black; border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                {% csrf_token %}
+
+                <h2 style="text-align: center; color: white">ADD VEHICLE</h2>
+            <div style="background-color: white; padding: 50px">
+                {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show mt-2 mb-2" role="alert">
+                          {{ message }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    {% endfor %}
+                <div class="row form-group">
+                <div class="col-6 col-sm-12 col-md-6">
+                    <label for="make">Make</label>
+                    <select name="make" id="make" class="form-control">
+                        <option value="">---</option>
+                        <option value="Mazda">Mazda</option>
+                    </select>
+                </div>
+                <div class="col-6 col-sm-12 col-md-6" class="form-control">
+                    <label for="model">Model</label>
+                    <select name="model" id="model" class="form-control">
+                        <option value="">---</option>
+                        <option value="CX5">CX5</option>
+                        <option value="CX3">CX3</option>
+                    </select>
+                </div>
+            </div>
+
+                <div class="row form-group mt-4">
+                    <div class="col-6 col-sm-12 col-md-6">
+                        <label for="cc">Engine CC</label>
+                        <input type="number" class="form-control" id="cc" name="cc">
+
+                    </div>
+                    <div class="col-6 col-sm-12 col-md-6">
+                        <label for="mileage">Mileage</label>
+                        <input type="number" class="form-control" id="mileage" name="mileage">
+                    </div>
+                </div>
+
+                <div class="row form-group mt-4">
+                    <div class="col-6 col-sm-12 col-md-6">
+                        <label for="fuel">Fuel type</label>
+                        <select name="fuel" id="fuel" class="form-control">
+                            <option value="">---</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                        </select>
+
+                    </div>
+                    <div class="col-6 col-sm-12 col-md-6">
+                        <label for="transmission">Transmission</label>
+                        <select name="transmission" id="transmission" class="form-control">
+                            <option value="">---</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row form-group mt-4">
+                    <div class="col-6 col-sm-12 col-md-6">
+                        <label for="yom">Year</label>
+                        <input type="number" class="form-control" id="yom" name="yom">
+
+                    </div>
+                    <div class="col-6 col-sm-12 col-md-6">
+                        <label for="color">Color</label>
+                        <input type="text" class="form-control" id="color" name="color">
+                    </div>
+                </div>
+
+                <div class="row form-group mt-4">
+                    <div class="col-6 col-sm-12 col-md-6">
+                        <label for="units">Available units</label>
+                        <input type="number" class="form-control" id="units" name="units">
+
+                    </div>
+                    <div class="col-6 col-sm-12 col-md-6">
+                        <label for="vehicleimage">Photo</label>
+                        <input type="file" accept="image/*" id="photo" name="photo" class="form-control" >
+                    </div>
+                </div>
+
+                <div class="row form-group mt-4">
+                    <div class="col-6 col-sm-12 col-md-6">
+                        <label for="otherphotos">Other photos</label>
+                        <input type="file" accept="image/*" id="otherphotos" name="otherphotos" class="form-control" disabled>
+                    </div>
+
+
+                </div>
+
+
+                <div class="row form-group mt-4">
+                    <input type="submit" class="btn btn-submit" name="add" value="ADD">
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block become-seller %} {% endblock %}

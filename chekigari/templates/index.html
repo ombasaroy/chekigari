@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
+    <style>
+        .activepage{
 
+            color: red;
+
+        }
+    </style>
 
 
 </head>
@@ -32,16 +38,26 @@
 {#          <li class="nav-item">#}
 {#          <a class="nav-link" href="{% url 'contact' %}">Contact</a>#}
 {#        </li>#}
+                <li class="nav-item">
+          <a class="nav-link {% if nav == 'home' %} activepage {% endif %}" href="{% url 'chekigari:index' %}">Home</a>
+        </li>
           <li class="nav-item">
               <a href="{% url 'chekigari:cart' %}" class="nav-link"><i class="fa-solid fa-cart-shopping"></i></a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="{% url 'chekigari:shop' %}">Buy</a>
+          <a class="nav-link {% if nav == 'shop' %} activepage {% endif %} " href="{% url 'chekigari:shop' %}">Buy</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="#">Sell</a>
+          <a class="nav-link {% if nav == 'addvehicle' %} activepage {% endif %}" href="{% url  'chekigari:addvehicle' %}">Sell</a>
         </li>
-        <li class="nav-item dropdown">
+
+      {% if not request.user.is_authenticated %}
+
+          <p class="nav-link">Logged out</p>
+
+
+      {% else %}
+           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ request.user }}
           </a>
@@ -54,6 +70,7 @@
             <li><a class="dropdown-item" href="#">Logout</a></li>
           </ul>
         </li>
+       {% endif %}
 {#        <li class="nav-item">#}
 {#          <a class="nav-link disabled">Disabled</a>#}
 {#        </li>#}
@@ -158,9 +175,10 @@
         <p class="card-text">AWD, Leather Seats, Black Interior</p>
         <p class="card-text">Mileage: <b>50,000 Kms </b></p>
           <p class="card-text">Price: Ksh <b>3,500,000</b></p>
-        <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
+        <a href="{% url 'chekigari:viewvehicle' %}" style="width: 100%" class="btn btn-primary">View details</a>
       </div>
     </div>
+
         <div class="card">
       <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
       <div class="card-body">
@@ -172,6 +190,7 @@
         <a href="{% url 'chekigari:viewvehicle' %}"style="width: 100%" class="btn btn-primary">View details</a>
       </div>
     </div>
+
         <div class="card">
       <img src="{% static 'images/tesla.jpg' %}" class="card-img-top" alt="Product Image" style="width: 100%; height: 10rem">
       <div class="card-body">
@@ -353,9 +372,9 @@
             </div>
             <div class="col-6 col-md-6 col-sm-12 sell-now">
                 <h1>Sell Your Car Here</h1>
-                <h5>Sign up to start selling</h5>
-                <a href="">
-                    <button >Sign up to sell</button>
+                <h5>Advertise with us</h5>
+                <a href="{% url 'chekigari:addvehicle' %}">
+                    <button >Add vehicle</button>
                 </a>
             </div>
         </div>

@@ -31,7 +31,8 @@
         </div>
 
 
-        <table class="table table-hover">
+        <div class="table-responsive">
+            <table class="table table-hover">
           <thead>
             <tr>
               <th>ID</th>
@@ -52,14 +53,39 @@
               <td>{{ d.dob }}</td>
               <td>{{ d.gender }}</td>
               <td class="actionBtns">
-                  <a href="/edituser/{{ d.id }}" class="editBtn" type="button">
+                  <a href="/edituser/{{ d.id }}" class="btn btn-warning" type="button">
                       Edit
                   </a>
-                  <a href="/delete/{{ d.id }}" type="button">
+
+                  <!-- Button to trigger the modal -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#centeredModal">
                       Delete
-                  </a>
+                    </button>
+                  <!-- The modal -->
+                 <div class="modal fade" id="centeredModal" tabindex="-1" role="dialog" aria-labelledby="centeredModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background: rgba(240,0,0,0.98);">
+                            <h3 class="modal-title" id="centeredModalLabel"><i class="fa-solid fa-triangle-exclamation"></i></h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none; background: transparent;">
+                                <i class="fa-solid fa-xmark" style="color: white"></i>
+                            </button>
+                        </div>
+                      <div class="modal-body">
+                        <p>Are you sure you want to delete the user?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <a href="/delete/{{ d.id }}" type="button" class="btn btn-danger" data-dismiss="modal">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+    </div>
+
+{#                  <a href="/delete/{{ d.id }}" type="button">#}
+{#                      Delete#}
+{#                  </a>#}
               </td>
-              
+
             </tr>
 
           {% endfor %}
@@ -68,7 +94,11 @@
 
           </tbody>
         </table>
+        </div>
+
     </div>
+
+
 
 {% endblock %}
 
