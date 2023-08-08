@@ -37,10 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'my_app',
-    'second_app',
     'chekigari',
-    'crud'
 ]
 
 MIDDLEWARE = [
