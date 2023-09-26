@@ -15,7 +15,7 @@ class Users(models.Model):
     gender = models.CharField(max_length=6, blank=False, null=False)
 
     def __str__(self):
-        return self.name
+        return self.fname
 
 
 class Messages(models.Model):
@@ -47,7 +47,7 @@ class Shop(models.Model):
     color = models.CharField(max_length=20, null=False, blank=False)
     available_units = models.IntegerField()
     photo = models.ImageField(upload_to="shopvehicles/", blank=True, null=True)
-    price = models.IntegerField()
+    # price = models.IntegerField()
 
     # other_photos = models.ImageField(upload_to='shopvehicles/', blank=True, null=True)
 

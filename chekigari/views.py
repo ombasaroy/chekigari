@@ -119,7 +119,6 @@ def edituser(request, id):
         return redirect("/viewdata")
 
 
-
     d = Users.objects.get(id=id)
     context = {"d": d}
     return render(request, 'edituser.html', context)
@@ -196,7 +195,7 @@ def addvehicle(request):
 def addvehicletodb(request):
     if request.method == 'POST':
         make = request.POST.get('make').title()
-        model = request.POST.get('make').title()
+        model = request.POST.get('model').title()
         cc = request.POST.get('cc')
         mileage = request.POST.get('mileage')
         fuel_type = request.POST.get('fuel')
@@ -205,7 +204,7 @@ def addvehicletodb(request):
         color = request.POST.get('color')
         available_units = request.POST.get('units')
         photo = request.FILES.get('photo')
-        price = request.POST.get('price')
+        # price = request.POST.get('price')
         # other_photos = request.POST.get('otherphotos')
 
         query = Shop(make=make, model=model, cc=cc, mileage=mileage, fuel_type=fuel_type,
