@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-app_name = "chekigari"  # prevents namespace conflic. always include it
+app_name = "chekigari"  # prevents namespace conflict. always include it
 urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.loginform, name='login'),

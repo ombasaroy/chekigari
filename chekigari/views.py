@@ -18,7 +18,7 @@ def loginform(request):
 
 def index(request):
     vehicles = Shop.objects.all()
-    context = {"vehicles":vehicles, 'nav':'home'}
+    context = {"vehicles":vehicles, 'nav': 'home'}
     return render(request, 'index.html', context)
 
 
@@ -28,8 +28,10 @@ def register(request):
 
 def viewdata(request):
     data = Users.objects.all()
+    intersex = Users.objects.filter(gender="Intersex").count()
+    male = Users.objects.all().count()
 
-    context = {"data": data}
+    context = {"data": data, "intersex": intersex, "male": male}
 
     return render(request, 'view.html', context)
 
@@ -147,7 +149,7 @@ def signupdata(request):
 
 
 def userlogin(request):
-    if request.method =="POST":
+    if request.method == "POST":
         l_username = request.POST.get('login-username')
         l_password = request.POST.get('login-password')
         userlog = authenticate(username=l_username, password=l_password)
@@ -214,6 +216,9 @@ def addvehicletodb(request):
         messages.success(request, "Vehicle added successfully")
 
         return redirect('/addvehicle')
+
+
+
 
 
 
